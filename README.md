@@ -43,7 +43,7 @@ Each buddy will have atleast 1 picture. The `src` for the image can be found by 
 
 Please note that...
 
- - **YOU MUST** create a component (e.g. `BadgerBudSummary.jsx`) to display this data. Place this component in the `src/components/buds` directory.
+ - **YOU MUST** create a component (e.g. `BadgerBudSummary.jsx`) to display this data.
  - **YOU MUST** specify a `key` for each summary.
  - **YOU MAY NOT** `fetch` data.
 
