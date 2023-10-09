@@ -34,7 +34,7 @@ On the "Available Cats" page (`BadgerBudsAdoptable.jsx`), display...
 
  - a picture (with appropriate alt tag, e.g. "A picture of Smokey")
  - a name
- - an "about me" button (see Step 4)
+ - a "show more" button (see Step 4)
  - a "save" button (see Step 5)
 
 ... for each of the buddies available for adoption.
@@ -44,7 +44,7 @@ Each buddy will have atleast 1 picture. The `src` for the image can be found by 
 Please note that...
 
  - **YOU MUST** create a component (e.g. `BadgerBudSummary.jsx`) to display this data.
- - **YOU MUST** specify a `key` for each summary.
+ - **YOU MUST** specify a `key` for each buddy.
  - **YOU MAY NOT** `fetch` data.
 
 The `fetch` has already been done for you in `BadgerBuds.jsx`. Instead of fetching data, you must use the `BadgerBudsDataContext`. This context returns an array with all the badger buddy data.
@@ -59,22 +59,19 @@ Use [React-Bootstrap's grid system](https://react-bootstrap.github.io/layout/gri
 
 ### 4. Display Additional Details
 
-Upon clicking the "about me" button, additional details should be shown for the buddy using a [Modal](https://react-bootstrap.netlify.app/docs/components/modal). This should include...
+Upon clicking the "show more" button, additional details should be shown for the buddy including...
 
- - name
  - gender
  - breed
  - age\*
  - a description *if they have one* (not all buddies have a description!)
- - all of the pictures in a [Carousel](https://react-bootstrap.netlify.app/docs/components/carousel) (note that some buddies only have 1 picture!)
- - an "exit" button
 
 \* The age is given in months and should be pretty-printed such that...
    - if the age is 4, "4 month(s) old" should be displayed.
    - if the age is 31, "2 year(s) and 7 month(s) old" should be displayed.
    - if the age is 48, "4 year(s) old" should be displayed.
 
-**Important:** The user must be able to exit the modal by either using the "exit" button **or** pressing the `esc` key on their keyboard.
+**Important:** The "show more" button should become a "show less" button. When "show less" is clicked, the card should go back to showing just the cat's name, picture, "show more" button, and "save" button.
 
 **Note:** To keep the assignment short, we won't do anything with the `spayed`, `neutered`, or `declawed` data. If you would like to display these you may, but it is not required.
 
@@ -101,7 +98,9 @@ In "My Basket", display...
  - an "unselect" button (see Step 7)
  - an "adopt" button (see Step 8)
 
-... for each saved buddy. You may choose to re-use the component you made in Step 2, or you may choose to make a new one. Again, **you must** specify a `key` for each buddy and **you must** use the `BadgerBudsDataContext` rather than `fetch`.
+... for each saved buddy. You may choose to re-use the component you made in Step 2, or you may choose to make a new one. Notice that there is no "show more" button for buddies on the "My Basket" page.
+
+Again, **you must** specify a `key` for each buddy and **you must** use the `BadgerBudsDataContext` rather than `fetch`.
 
 ![](_figures/step6.png)
 
@@ -123,6 +122,8 @@ When a user clicks the "adopt" button for a particular buddy, an `alert` should 
 
 You **MUST** implement this using `sessionStorage`. I would recommend creating a new  `adoptedCatIds`  to keep track of the buds that are adopted.
 
+**Note:** There is no way to "unadopt" a cat through our UI. Nor should you! 😿 Once the user has clicked "adopt", the only way `adoptedCatIds` can be reset is by closing the browser.
+
 ![](_figures/step8.png)
 
 ### Step 9: Handle No Buds
@@ -133,14 +134,17 @@ Likewise, on the "My Basket" page, if there are no saved buds, display "You have
 
 ![](_figures/step9.png)
 
+### Step 10: Display a Carousel
+
+When a buddy is in its "show more" mode, the single picture should be replaced with a [carousel](https://react-bootstrap.netlify.app/docs/components/carousel/) of pictures. When the user chooses "show less", it should go back to a single picture. Some carousels may only have a single picture -- that is okay!
+
+![](_figures/step10.png)
+
 ### Design Requirements
 
  - Be sure that your design is responsive.
  - Be sure that images are not extremely distorted; considering using an [aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) of `"1/1"`
  - Be sure that all `img` have been given an appropriate `alt` tag.
- - Be sure to use a [modal](https://react-bootstrap.netlify.app/docs/components/modal) for displaying a bud's details.
- - Be sure to use a [carousel](https://react-bootstrap.netlify.app/docs/components/carousel) within your [modal](https://react-bootstrap.netlify.app/docs/components/modal) for displaying all of the bud's pictures.
-
 
 
 ### Done! 🥳
